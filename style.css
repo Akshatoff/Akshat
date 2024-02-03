@@ -1,0 +1,1076 @@
+/* Reset and fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Coming+Soon&family=Montserrat&family=Montserrat+Alternates&family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+/* font-family: 'Bebas Neue', sans-serif;
+font-family: 'Coming Soon', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+:root {
+    --text: #d7ecfd;
+    --background: #010b12;
+    --primary: #86c8f8;
+    --secondary: #09004d;
+    --accent: #571df2;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+   
+}
+
+body {
+    background: var(--background);
+    z-index: -10;
+}
+
+.text {
+    color: var(--text);
+}
+
+.hamburger {
+    display:none;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    z-index: 100;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color:transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0px; 
+    overflow: hidden;
+    transition: top 0.3s;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    
+}
+
+.navbarmobile {
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top: 0px; 
+    overflow: hidden;
+    gap:1rem;
+    transition: top 0.3s;
+}
+
+.logomobile {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.nav-list-mobile {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.nav-list li {
+    cursor: pointer;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+
+.nav-list li:hover {
+    color: var(--accent);
+}
+
+
+.section {
+    width: 100%;
+    height: 39rem;
+    transition: all 300ms ease-in-out;
+
+}
+
+/* Home */
+#videobg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.mobile {
+    display: none;
+}
+
+.heading-home {
+    font-family: 'Coming Soon', cursive;
+    text-align: center;
+    padding-top: 12rem;
+    font-size: 3rem;
+}
+
+.sub-heading {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+h1 div {
+    display: inline-block;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+
+    padding: 0.7% 2% 0.7% 2%;
+    background: var(--primary);
+    color: var(--background);
+    font-size: 1.2rem;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    transition: all 300ms ease-in-out;
+}
+
+.about {
+    margin-left: 30rem;
+    margin-top: 2rem;
+}
+
+.skills {
+    padding: 0.7% 5% 0.7% 5%;
+    background: var(--secondary);
+    margin-left: 2rem;
+    color: var(--text);
+}
+
+.about:hover {
+    box-shadow: 1px 1px 15px var(--primary);
+}
+
+.skills:hover {
+    box-shadow: 1px 1px 15px var(--secondary);
+}
+
+/* About */
+
+#aboutpage {
+    display: none;
+    background-image: url("./assets/Aboutbg.png");
+    background-size: cover;
+
+}
+
+.heading-about {
+    font-family: 'Coming Soon', cursive;
+    text-align: left;
+    font-size: 3rem;
+    padding-top: 2rem;
+    margin-left: 3rem;
+}
+
+.box {
+    background-image: url("./assets/akshat.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    width: 15rem;
+    height: 15rem;
+    margin-top: 2rem;
+    float: right;
+    margin-right: 4rem;
+    animation: scaleAnimation 3s infinite alternate ease-in-out;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.abouttext {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    width: 25rem;
+    overflow-wrap: break-word;
+    margin-top: 3rem;
+    margin-left: 2rem;
+
+}
+
+.Home {
+    padding: 0.8rem 2rem 0.8rem 2rem;
+    margin-left: -20rem;
+    margin-top: 1rem;
+
+}
+
+.Home:hover {
+    box-shadow: 1px 1px 15px var(--primary);
+}
+
+.insta {
+    fill: var(--text);
+    margin-right: 14rem;
+    float: right;
+}
+
+svg {
+    cursor: pointer;
+    fill: var(--text);
+    float: right;
+}
+
+.discord {
+    margin-right: -5rem;
+}
+
+.github {
+    margin-right: -8rem;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text);
+}
+
+#works {
+    background: var(--secondary);
+    margin-left: 10rem;
+    color: var(--text);
+    padding: 0.8rem 4rem 0.8rem 4rem;
+    float: left;
+    margin-top: 1rem;
+}
+
+#works:hover {
+    box-shadow: 1px 1px 15px var(--secondary);
+}
+
+/* Skills */
+
+#skillpage {
+    display: none;
+    background: var(--background);
+
+}
+
+.headingskill {
+    font-family: 'Coming Soon', cursive;
+    text-align: right;
+    padding-top: 2rem;
+    margin-right: 5rem;
+    font-size: 3rem;
+}
+
+
+.skill-container {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-left: 25rem;
+    margin-top: 3rem;
+}
+.mobileskill {
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.icon {
+    width: 5rem;
+    height: 5rem;
+    transition: all 300ms ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(115%);
+}
+
+#reacticon {
+    height: 6rem;
+}
+
+#jsicon {
+    margin-left: 2rem;
+}
+
+.s {
+    width: 7rem;
+    height: 7rem;
+    margin-top: -0.8rem;
+}
+
+.line-break {
+    width: 100%;
+}
+
+#Cicon {
+    margin-left: 2rem;
+}
+
+#Cppicon {
+    margin-left: 2rem;
+}
+
+#javaicon {
+    width: 10rem;
+
+}
+
+#psicon {
+    width: 8rem;
+    margin-left: 2rem;
+}
+
+#aeicon {
+    width: 8rem;
+    margin-right: 2rem;
+}
+
+#figmaicon {
+    width: 4rem;
+}
+
+.skilltext {
+    margin-left: -22rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
+.skilltext1 {
+    margin-right: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-left: -15rem;
+}
+
+.skilltext2 {
+    margin-right: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-left: -11rem;
+}
+
+#workss {
+    background: var(--secondary);
+    margin-left: 35rem;
+    color: var(--text);
+    padding: 0.8rem 4rem 0.8rem 4rem;
+    float: left;
+    margin-top: 1rem;
+}
+
+#workss:hover {
+    box-shadow: 1px 1px 15px var(--secondary);
+}
+
+/* Works */
+
+#workspage {
+    display: none;
+    background: var(--background);
+    place-items: center;
+}
+
+
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.item {
+    width: 200px;
+    height: 300px;
+    list-style-type: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+    transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+    }
+
+    &:nth-child(3) {
+        left: 50%;
+    }
+
+    &:nth-child(4) {
+        left: calc(50% + 220px);
+    }
+
+    &:nth-child(5) {
+        left: calc(50% + 440px);
+    }
+
+    &:nth-child(6) {
+        left: calc(50% + 660px);
+        opacity: 0;
+    }
+}
+
+.content {
+    width: min(30vw, 400px);
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    font: 400 0.85rem helvetica, sans-serif;
+    color: white;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: none;
+
+    & .title {
+        font-family: 'arial-black';
+        text-transform: uppercase;
+    }
+
+    & .description {
+        line-height: 1.7;
+        margin: 1rem 0 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    & button {
+        width: fit-content;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: white;
+        border: 2px solid white;
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        cursor: pointer;
+    }
+}
+
+.item:nth-of-type(2) .content {
+    display: block;
+    animation: show 0.75s ease-in-out 0.3s forwards;
+}
+
+@keyframes show {
+    0% {
+        filter: blur(5px);
+        transform: translateY(calc(-50% + 75px));
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.nav {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    user-select: none;
+
+    & .btn {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        margin: 0 0.25rem;
+        padding: 0.75rem;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+}
+
+.daisy {
+    margin-top: 30rem;
+}
+
+.title-black {
+    color: #000;
+    margin-top: -15rem;
+    font-family: 'arial-black';
+    text-transform: uppercase;
+}
+.description-black {
+    color: #000;
+    line-height: 1.7;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.8rem;
+}
+#ai {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    margin: 0 0.25rem;
+    padding: 0.75rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.ai:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+
+@media (width > 650px) and (width < 900px) {
+    .content {
+        & .title {
+            font-size: 1rem;
+        }
+
+        & .description {
+            font-size: 0.7rem;
+        }
+
+        & button {
+            font-size: 0.7rem;
+        }
+    }
+
+    .item {
+        width: 160px;
+        height: 270px;
+
+        &:nth-child(3) {
+            left: 50%;
+        }
+
+        &:nth-child(4) {
+            left: calc(50% + 170px);
+        }
+
+        &:nth-child(5) {
+            left: calc(50% + 340px);
+        }
+
+        &:nth-child(6) {
+            left: calc(50% + 510px);
+            opacity: 0;
+        }
+    }
+}
+
+@media (width < 650px) {
+    .content {
+        & .title {
+            font-size: 0.9rem;
+        }
+
+        & .description {
+            font-size: 0.65rem;
+        }
+
+        & button {
+            font-size: 0.7rem;
+        }
+    }
+
+    .item {
+        width: 130px;
+        height: 220px;
+
+        &:nth-child(3) {
+            left: 50%;
+        }
+
+        &:nth-child(4) {
+            left: calc(50% + 140px);
+        }
+
+        &:nth-child(5) {
+            left: calc(50% + 280px);
+        }
+
+        &:nth-child(6) {
+            left: calc(50% + 420px);
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width:768px){
+    .mobile {
+        display: block;
+    }
+    .pc{
+        display: none;
+    }
+    .about {
+        margin-left: 15rem;
+    }
+    .hamburger {
+        display: block;
+    }
+    .navbar {
+        display: none;
+    }
+    .heading-home {
+        z-index: -1;
+        position: relative;
+    }
+    #aboutpage {
+        background-image: url("./assets/bgmobile.png");
+        background-size: cover;
+    }
+    #image {
+        margin-left: 15rem;
+        float: left;
+    }
+    .icon-container {
+        margin-top: -22rem;
+        float: left;
+        margin-left: 19rem;
+    }
+    .abouttext {
+        margin-top: 30rem;
+        margin-left: 10rem;
+    }
+    #aSkills {
+        margin-left: 2rem;
+    }
+    #works {
+        margin-left: 10rem;
+    }
+}
+
+
+@media screen and (max-width:400px){
+    #about {
+        float: left;
+        margin-left: 4rem;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+    }
+    #Skills {
+        float: left;
+        margin-top: 1.9rem;
+        padding: 0.7rem 2rem 0.7rem 2rem;
+    }
+    .mobile {
+        display: block;
+    }
+    .pc{
+        display: none;
+    }
+    .about {
+        margin-left: 15rem;
+    }
+    .hamburger {
+        display: block;
+    }
+    .navbar {
+        display: none;
+    }
+    .heading-home {
+        z-index: -1;
+        position: relative;
+    }
+    #aboutpage {
+        background-image: url("./assets/bgmobile.jpg");
+        background-size: cover;
+        overflow: scroll;
+    }
+    #image {
+        margin-left: 3rem;
+        float: left;
+        margin-top: -0.2rem;
+    }
+    .icon-container {
+        margin-top: -18.5rem;
+        float: left;
+        margin-left: 7rem;
+    }
+    .abouttext {
+        width: 350px;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        float: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-all;
+    }
+    #aSkills {
+        margin-left: 2rem;
+        margin-top: 2rem;
+    }
+    #works {
+        margin-left: 10rem;
+        margin-top: -3.5rem;
+    }
+    #skillpage{
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .skillstext {
+        display: none;
+    }
+    .headingskill {
+        margin-right: -2rem;
+        text-align: center;
+    }
+    .skill-container {
+        display: none;
+
+    }
+    .mobileskill {
+        display: flex;
+        margin-left: 4rem;
+    }
+    #Cppicon {
+        margin-left: -0.2rem;
+    }
+    #psicon {
+        margin-left: -1.7rem;
+    }
+    #figmaicon {
+        margin-left: 5rem;
+    }
+}
+
+@media screen and (max-width:430px){
+    #about {
+        float: left;
+        margin-left: 7rem;
+        padding: 0.7rem 1rem 0.7rem 1rem;
+    }
+    #Skills {
+        float: left;
+        margin-top: 1.9rem;
+        padding: 0.7rem 2rem 0.7rem 2rem;
+    }
+    .mobile {
+        display: block;
+    }
+    .pc{
+        display: none;
+    }
+    .about {
+        margin-left: 15rem;
+    }
+    .hamburger {
+        display: block;
+    }
+    .navbar {
+        display: none;
+    }
+    .heading-home {
+        z-index: -1;
+        position: relative;
+    }
+    #aboutpage {
+        background-image: url("./assets/bgmobile.jpg");
+        background-size: cover;
+        overflow: scroll;
+    }
+    #aboutmain {
+        margin-left: 9rem;
+    }
+    #image {
+        margin-left: 6rem;
+        float: left;
+        margin-top: 0.1rem;
+    }
+    .icon-container {
+        margin-top: -19.5rem;
+        float: left;
+        margin-left: 9.5rem;
+        
+    }
+    .abouttext {
+        width: 350px;
+        margin-top: 5rem;
+        margin-left: 3rem;
+        float: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-all;
+    }
+    #aSkills {
+        margin-left: 5rem;
+        margin-top: 2rem;
+    }
+    #works {
+        margin-left: 13rem;
+        margin-top: -3.5rem;
+    }
+    #skillpage{
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .skillstext {
+        display: none;
+    }
+    .headingskill {
+        margin-right: -2rem;
+        text-align: center;
+    }
+    .skill-container {
+        display: none;
+
+    }
+    .mobileskill {
+        display: flex;
+        margin-left: 6rem;
+    }
+    #Cppicon {
+        margin-left: 1.89rem;
+       
+    }
+    #psicon {
+        margin-left: -1.7rem;
+    }
+    #figmaicon {
+        margin-left: 5rem;
+    }
+}
+@media screen and (min-width:1300px){
+    #aboutpage {
+        background-image: url("./assets/bg-big.png");
+        background-size: cover;
+        height:45rem;
+    }
+    #aSkills {
+        margin-top: 3rem;
+    }
+    #works {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (min-width:1900px){
+
+    .nav-list li {
+        font-size: 1.5rem;
+        
+    }
+    .nav-list {
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    #main {
+        font-size: 5rem;
+        margin-top: 6rem;
+    }
+    #sub {
+        font-size: 3rem;
+    }
+
+    .btn {
+        padding: 1rem 2.5rem 1rem 2.5rem;
+        font-size: 1.6rem;
+    }
+
+    .skills {
+        padding: 1rem 6rem 1rem 6rem;
+        font-size: 1.6rem;
+    }
+
+    .btn-contaner {
+        margin-left: 15rem;
+    }
+
+    #aboutpage {
+        background-image: url("./assets/bg-biggest.png");
+        background-size: cover;
+        height:65rem;
+    }
+
+    #aboutmain {
+        font-size: 5rem;
+        margin-left: 5rem;
+        margin-top: 3rem;
+    }
+
+    #image {
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .abouttext {
+        font-size: 1.5rem;
+        width: 35rem;
+        margin-left: 5rem;
+    }
+
+
+    #aSkills {
+        margin-top: 3rem;
+        margin-left: 5rem;
+    }
+    #works {
+        margin-top: 3rem;
+        margin-left: 5rem;
+    }
+
+    svg {
+        height: 48px;
+        width: 48px;
+    }
+
+    .insta{ 
+        margin-right: -1.5rem;
+    }
+    .icon-container{
+        display: flex;
+        float: right;
+        margin-top: 10.2rem;
+        gap: 2rem;
+        margin-right: -10rem
+    }
+    
+    .skilltext {
+        font-size: 3rem;
+    }
+    .skilltext1 {
+        font-size: 3rem;
+    }
+    .skilltext2 {
+        font-size: 3rem;
+    }
+
+    .icon {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .headingskill {
+        font-size: 4rem;
+    }
+
+    #reacticon {
+        height: 12rem;
+        width: 11rem;
+        margin-top: -2rem;
+    }
+
+    #htmlicon {
+        height: 12rem;
+        width: 11rem;
+        margin-top: -1.5rem;
+    }
+    #cssicon {
+        width: 9rem;
+        height: 9rem;
+    }
+    #jsicon {
+        width: 9rem;
+        height: 9rem;
+    }
+    #pyicon {
+        margin-left: 1.4rem;
+    }
+
+    #javaicon {
+        width: 15rem;
+        margin-left: -1rem;
+    }
+
+    #psicon {
+        width: 15rem;
+    }
+    #aeicon {
+        width: 15rem;
+    }
+    #figmaicon {
+    width: 8rem;
+    }
+
+    #workspage {
+        height: 65rem;
+    }
+
+    .item {
+        width: 400px;
+        height: 400px;
+        transform: translateY(-70%);
+        transform: translateX(20%);
+        
+    }
+}
