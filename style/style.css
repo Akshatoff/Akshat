@@ -1,0 +1,474 @@
+/* Reset and Prerequisites */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Coming+Soon&family=Montserrat&family=Montserrat+Alternates&family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+
+/* font-family: 'Bebas Neue', sans-serif;
+font-family: 'Coming Soon', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #d7ecfd;
+    --background: #010b12;
+    --primary: #86c8f8;
+    --secondary: #09004d;
+    --accent: #571df2;
+
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background: var(--text);
+    position: relative;
+    z-index: -999;
+    overflow-x: hidden;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.text {
+    color: var(--text);
+    position:relative;
+    z-index: 2;
+}
+.section {
+    width: 100%;
+    height: 100vh;
+    background: var(--background);
+}
+
+.btn {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    transition: all 200ms ease-in-out;
+}
+/* Home */
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: -1;
+}
+
+#bg {
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.8;
+    display: none;
+    min-width: 1280px;
+    min-height: 720px;
+}
+
+
+#heading {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 5rem;
+    opacity: 0;
+}
+
+
+#subhead,.subhead {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 1rem;
+    font-size: 2rem;
+    opacity: 0;
+
+}
+
+#loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 1280px;
+    height: 720px;
+}
+
+/* About */
+
+
+#about-title {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 5rem;
+    padding: 2rem 4rem;
+}
+
+#about-description {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    width: 32rem;
+    margin: 2rem 4rem;
+}
+
+#about-image {
+    width: 22rem;
+    border-radius: 20px;
+    float: right;
+    margin: 0rem 5rem;    
+}
+
+#contactme {
+    margin: 0 4rem;
+}
+
+#contactme:hover {
+    background: url("../assets/btn.jpg");
+    background-size: cover;
+    color: white;
+
+}
+
+/* Works */
+
+#works-heading {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.work-container-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.work-container-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    float: right;
+    margin: -90vh 2rem;
+
+}
+
+.cards {
+    width: 20rem;
+    height: 15rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 400ms ease-in-out;
+}
+
+#first{
+    margin-top: -5rem;
+}
+
+#fourth {
+    margin-right: 8rem;
+}
+
+.card-image {
+    width: 20rem;
+    height: 15rem;
+    border-radius: 20px;
+}
+
+#second {
+    margin-left: 8rem;
+}
+
+#third {
+    margin-left: 8rem;
+}
+
+.cards:hover {
+    scale: 0.8;
+}
+
+#skill-heading {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 5rem;
+    text-align: right;
+    margin-right: 4rem;
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 65rem;
+    margin: 3rem 7rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill {
+    width:7rem;
+    height: 7rem;
+    filter: grayscale(0.15);
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    
+}
+
+#figma {
+    width: 5rem;
+
+}
+
+#java {
+    width: 10rem;
+}
+
+.skill:hover {
+    filter: grayscale(0);
+    scale: 1.2;
+}
+/* Animation and Responsiveness */
+
+@media screen  and (min-width: 1200px){
+    #loader {
+        width: 1280px;
+        height: 720px;
+    }    
+    #bg {
+        width: 1280px;
+        height: 720px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #loader {
+        width: 1366px;
+        height: 768px;
+    }
+    #bg {
+        width: 1366px;
+        height: 768px;
+    }
+
+   
+
+    .work-container-right {
+        margin: -70vh 2rem;
+    }
+    
+    
+.cards {
+    width: 22rem;
+    height: 15rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 400ms ease-in-out;
+}
+
+#first{
+    margin-top: 1rem;
+}
+
+#fourth {
+    margin-right: 8rem;
+}
+
+.card-image {
+    width: 22rem;
+    height: 15rem;
+    border-radius: 20px;
+}
+
+#second {
+    margin-left: 8rem;
+}
+
+#third {
+    margin-left: 8rem;
+}
+    
+#about-image {
+    width: 25rem;
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 74rem;
+    margin: 10rem 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill {
+    width:8rem;
+    height: 8rem;
+    filter: grayscale(0.15);
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    
+}
+
+#figma {
+    width: 5rem;
+
+}
+
+#java {
+    width: 12rem;
+}
+
+#skill-heading  {
+padding-top: 3rem;
+}
+
+@media screen and (min-width: 1900px){
+    #loader {
+        width: 1920px;
+        height: 1080px;
+    }
+    #bg {
+        width: 1920px;
+        height: 1080px;
+    }
+
+    #heading {
+        font-size: 8rem;
+    }
+
+    #subhead {
+        font-size: 3rem;
+    }
+    #intro {
+        font-size: 3rem;
+    }
+
+    #about-title {
+        font-size: 10rem;
+        padding: 5rem 4rem;
+    }
+    #about-description {
+        font-size: 2rem;
+        margin: 3rem 4rem;
+        width: 55rem;
+    }
+    #contactme {
+        margin: 2rem 4rem;
+        padding: 1.5rem 4.5rem;
+        font-size: 2rem;
+    }
+
+    
+    .work-container-right {
+        margin: -65vh 2rem;
+    }
+
+    #works-heading {
+        font-size: 8rem;
+    }
+    
+    
+.cards {
+    width: 32rem;
+    height: 20rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 400ms ease-in-out;
+}
+
+#first{
+    margin-top: 1rem;
+}
+
+#fourth {
+    margin-right: 8rem;
+}
+
+.card-image {
+    width: 32rem;
+    height: 20rem;
+    border-radius: 20px;
+}
+
+#second {
+    margin-left: 8rem;
+}
+
+#third {
+    margin-left: 8rem;
+}
+    
+#about-image {
+    width: 35rem;
+}
+
+#skill-heading {
+    font-size: 10rem;
+    padding: 2rem 0;
+}
+
+
+.skill-container {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+    flex-wrap: wrap;
+    width: 105rem;
+    margin: 10rem 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill {
+    width:9rem;
+    height: 9rem;
+    filter: grayscale(0.15);
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    
+}
+
+#figma {
+    width: 6rem;
+
+}
+
+#java {
+    width: 13rem;
+}
+
+}
