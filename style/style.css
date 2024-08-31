@@ -18,7 +18,7 @@ font-family: 'Roboto', sans-serif; */
 
 :root {
     --text: #d7ecfd;
-    --background: #010b12;
+    --background: #121212;
     --primary: #86c8f8;
     --secondary: #09004d;
     --accent: #571df2;
@@ -471,4 +471,4 @@ padding-top: 3rem;
     width: 13rem;
 }
 
-}
+}}

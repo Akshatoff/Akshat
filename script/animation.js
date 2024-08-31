@@ -11,17 +11,17 @@ const subhead = document.getElementById("subhead");
 const subhead2 = document.getElementById("subhead2");
 const subhead3 = document.getElementById("subhead3");
 const subhead4 = document.getElementById("subhead4");
-const loader = document.getElementById("loader");
 const width = window.innerWidth;
 const height = window.innerHeight;
+const image = document.getElementById("about-image");
 
 
-loader.addEventListener("ended", function () {
+  
 
-  setTimeout(() => {
+
+document.addEventListener("DOMContentLoaded", (event) => {
 
     background.style.display = "block";
-  }, 1500);
 
   //Typewriter effect
 
@@ -31,7 +31,7 @@ loader.addEventListener("ended", function () {
   });
 
   typewriter
-    .pauseFor(2500)
+    .pauseFor(3900)
     .typeString("Front End Developer")
     .pauseFor(1500)
     .deleteChars(20)
@@ -84,17 +84,24 @@ loader.addEventListener("ended", function () {
     fadeIn(heading);
     fadeIn(subhead);
     fadeIn(intro);
-  }, 500);
+  }, 3500);
 
-  home.style.background = "#010b12"
-  loader.style.display = "none";
+  home.style.background = "#121212";
 
- 
+  const imageStart = getElementCenter(image);
+  const sectionCenter = getElementCenter(works);
 
-});
+  const moveX = sectionCenter.x - imageStart.x;
+const moveY = sectionCenter.y - imageStart.y;
 
+  function getElementCenter(element) {
+  const rect = element.getBoundingClientRect();
+  return {
+    x: rect.left + rect.width / 2,
+    y: rect.top + rect.height / 2
+  };
+}
 
-document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
   let tl = gsap.timeline({
     scrollTrigger: {
@@ -102,34 +109,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
       start: '60% center',
       end: "200% center",
       scrub: 1,
-
+      
 
     }
   })
 
-  if (width >= 1900) {
-    tl.to(".image", {
-      x: -600,
-      y: 1000,
-      scale:0.75,
-    })
-  }
-  else if (width >= 1300) {
-    tl.to(".image", {
-      x: -400,
-      y: 800,
-      scale: 0.75,
-    })
-  }
-  else {
-
   tl.to(".image", {
-    x: -390,
-    y: 550,
+    x: moveX,
+    y: moveY,
     scale: 0.75,
+    ease: "power2.inOut"
 
   })
-}
+
 });
 
 
