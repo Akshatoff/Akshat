@@ -279,7 +279,7 @@ footer {
     height: 100vh;
     background-size: cover;
     display: grid;
-    
+    overflow: hidden;
 }
 .position {
     margin: -15rem 5rem;
@@ -311,4 +311,72 @@ footer ion-icon {
 
 .link {
     text-decoration: none;
+}
+
+@media screen and (min-width: 1900px){
+    #heading {
+        font-size: 7rem;
+    }
+    #subhead {
+        font-size: 2rem;
+    }
+    #workhead {
+        font-size: 7rem;
+    }
+    .work-container {
+        margin-top: -15rem;
+    }
+    #abouthead {
+        font-size: 7rem;
+    }
+    .box {
+        width: 20rem;
+        height: 20rem;
+       
+    }
+    .box:nth-child(2) {
+        margin-left: 10rem;
+    }
+    #box1head {
+        font-size: 8rem;
+    }
+    #box1sub {
+        font-size: 2rem;
+        width: 8rem;
+    }
+    #description {
+        font-size: 2rem;
+        width: 40rem;
+    }
+    #review {
+        font-size: 1.2rem;
+   
+    }
+    .card {
+        width: 800px !important ;
+    }
+    #skill-heading {
+        font-size: 8rem;
+    }
+    .skill-container {
+        width: 85rem;
+        margin: 5rem 14rem;
+    }
+    .skill {
+        width: 10rem;
+        height: 10rem;
+    }
+    #figma {
+        width: 8rem;
+    }
+    #contact {
+        font-size: 8rem;
+        margin: 20rem 5rem;
+    }
+    .position {
+        margin: -20rem 5rem;
+    }
+    footer ion-icon {
+        font-size: 4rem;
+    }
 }
