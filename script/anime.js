@@ -1,4 +1,20 @@
 const heading = document.getElementById("heading");
+const width = window.innerWidth;
+const particlebg = document.getElementById("particles-js");
+
+
+if (width > 1000) {
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+    
+    })
+    particlebg.style.display = "block";
+    console.log(width);
+    
+}
+else {
+    particlebg.style.display = "none";
+}
+
 
 CustomEase.create("cubic", "0.83, 0, 0.17, 1");
 
@@ -12,16 +28,19 @@ let tl = gsap.timeline({
         trigger: "#abouthead",
         start:"-340% top",
         end: "100% bottom",
-      
+        scrub: 5,
+        
         
     }
 });
+
 
 let tl2 = gsap.timeline({
     scrollTrigger: {
         trigger: "#skill-heading",
         start: "-20% top",
         end: "100% bottom",
+        scrub: 5,
         
     }
 })
@@ -41,6 +60,7 @@ tl.fromTo(
         ease: "power4.out",
     }
 )
+
 tl.fromTo(
     ".box",
     {
@@ -120,10 +140,7 @@ tl2.fromTo(
     }
 )
 
-particlesJS.load('particles-js', 'assets/particles.json', function() {
-    console.log("done");
-    
-})
+
 
 function initializeCards() {
     let cards = Array.from(document.querySelectorAll(".work-card"));
@@ -194,3 +211,5 @@ document.addEventListener("click", function() {
 
     
 });
+
+

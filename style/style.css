@@ -159,9 +159,7 @@ background-color: var(--bg);
     gap: 2rem;
 }
 
-#head {
-    
-}
+
 
 #club {
     color: var(--secondarytext);
@@ -378,5 +376,24 @@ footer ion-icon {
     }
     footer ion-icon {
         font-size: 4rem;
+    }
+}
+
+
+@media screen and (max-width: 400px){
+
+
+    #heading {
+        font-size: 2rem;
+        text-align: center;
+        position: absolute;
+        top: 25%;
+    }
+    #workhead {
+        font-size: 2rem;
+        margin:0;
+    }
+    #subhead {
+        top: 45%;
     }
 }
