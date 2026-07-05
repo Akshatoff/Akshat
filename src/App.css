@@ -1,0 +1,276 @@
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.spiral-viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a0a0a;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Crucial for enabling deep 3D space tracking environment */
+  perspective: 1200px;
+}
+
+/* Background grid styling */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  pointer-events: none;
+}
+
+/* Central anchor point handling internal coordinate placement vectors */
+.spiral-stage {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+/* Base properties configured per interactive card */
+.spiral-card {
+  position: absolute;
+  width: 280px;
+  height: 180px;
+  left: -140px; /* Offset exactly half width to keep anchor centered */
+  top: -90px; /* Offset exactly half height to keep anchor centered */
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover scales card outward relative to its calculated local 3D perspective plane */
+.spiral-card:hover .card-inner {
+  transform: scale(1.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Active floating label tracker styling elements */
+.title-toast {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-family: sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.title-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* About */
+
+.about-viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+.grid-bg-about {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.about-text {
+  width: 40rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.word {
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.1s ease;
+}
+
+.side-cards-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  height: 300px;
+  z-index: 2;
+}
+
+.left-side {
+  left: 40px;
+}
+
+.right-side {
+  right: 40px;
+}
+
+.card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #121212;
+  backface-visibility: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-card {
+  transform-origin: -450px center;
+}
+
+.right-card {
+  transform-origin: calc(100% + 450px) center;
+}
+
+.card-tooltip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: none; /* Prevents the tooltip itself from blocking hover events */
+}
+
+/* Hover effect on the card triggers the tooltip */
+.card:hover .card-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-viewport {
+  position: relative;
+  width: 100vw;
+  min-height: 50vh;
+  background-color: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8rem 0;
+}
+
+.grid-bg-skills {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  width: 100vw;
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+.marquee-container {
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  margin-bottom: 1.5rem;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.skill-item {
+  font-size: 7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 0 2rem;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: crosshair;
+}
+
+.skill-item:hover {
+  color: #fff;
+  -webkit-text-stroke: 1px transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.spacer {
+  height: 1000vh;
+}
