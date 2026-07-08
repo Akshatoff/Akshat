@@ -1,45 +1,57 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
+// 1. Define explicit types for our window system
+type WindowKey = "terminal" | "manifest";
+
+interface WindowState {
+  open: boolean;
+  zIndex: number;
+}
+
 export default function ContactOS() {
-  // Window states: open, minimized, or maximized
-  const [windows, setWindows] = useState({
+  // Type the state as a record using our strict WindowKey keys
+  const [windows, setWindows] = useState<Record<WindowKey, WindowState>>({
     terminal: { open: true, zIndex: 3 },
     manifest: { open: true, zIndex: 2 },
   });
 
-  const [topWindow, setTopWindow] = useState("terminal");
-
   // Terminal execution states
-  const [terminalHistory, setTerminalHistory] = useState([
+  const [terminalHistory, setTerminalHistory] = useState<string[]>([
     "SYS_INIT: Core protocols loaded successfully.",
     "Type 'help' for a list of available system parameters.",
     "Ready for user input...",
     "",
   ]);
-  const [inputVal, setInputVal] = useState("");
-  const [contactStep, setContactStep] = useState(0); // 0 = idle, 1 = name, 2 = email, 3 = msg
+  const [inputVal, setInputVal] = useState<string>("");
+  const [contactStep, setContactStep] = useState<number>(0); // 0 = idle, 1 = name, 2 = email, 3 = msg
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-  const terminalEndRef = useRef(null);
+  // FIX: Type the ref so TS knows it belongs to an HTML container element
+  const terminalEndRef = useRef<HTMLDivElement | null>(null);
 
   // Auto scroll terminal to bottom
   useEffect(() => {
     terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [terminalHistory]);
 
-  const bringToFront = (winName) => {
-    setTopWindow(winName);
+  // FIX: Added WindowKey type constraint
+  const bringToFront = (winName: WindowKey) => {
     setWindows((prev) => {
       const updated = { ...prev };
       Object.keys(updated).forEach((key) => {
-        updated[key].zIndex = key === winName ? 10 : 2;
+        const k = key as WindowKey; // Type-cast the string iterator to our specific window key
+        updated[k] = {
+          ...updated[k],
+          zIndex: k === winName ? 10 : 2,
+        };
       });
       return updated;
     });
   };
 
-  const toggleWindow = (winName, action) => {
+  // FIX: Added explicit types for function arguments
+  const toggleWindow = (winName: WindowKey, action: "open" | "close") => {
     setWindows((prev) => ({
       ...prev,
       [winName]: { ...prev[winName], open: action === "open" },
@@ -47,20 +59,19 @@ export default function ContactOS() {
     if (action === "open") bringToFront(winName);
   };
 
-  const handleCommand = (e) => {
+  // FIX: Explicitly typed the KeyboardEvent coming from the Input element
+  const handleCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
 
     const trimmedInput = inputVal.trim();
     const cmd = trimmedInput.toLowerCase();
-    let response = [];
+    let response: string[] = [];
 
-    // If currently running the sequential contact form setup
     if (contactStep > 0) {
       handleContactWizard(trimmedInput);
       return;
     }
 
-    // Normal OS Terminal Commands
     switch (cmd) {
       case "help":
         response = [
@@ -112,7 +123,8 @@ export default function ContactOS() {
     setInputVal("");
   };
 
-  const handleContactWizard = (value) => {
+  // FIX: Added type definition for the value parameter
+  const handleContactWizard = (value: string) => {
     if (contactStep === 1) {
       setFormData((p) => ({ ...p, name: value }));
       setTerminalHistory((prev) => [
@@ -137,7 +149,7 @@ export default function ContactOS() {
         "PACKET TRANSMISSION COMPLETE. ENGAGING HYPER-ROUTING...",
         `Thank you, ${finalData.name}. Connection pipeline established successfully.`,
       ]);
-      console.log("Transmission Received:", finalData); // Connect your database or service here
+      console.log("Transmission Received:", finalData);
       setContactStep(0);
       setFormData({ name: "", email: "", message: "" });
     }
@@ -148,7 +160,6 @@ export default function ContactOS() {
     <div className="os-viewport">
       <div className="grid-bg-os"></div>
 
-      {/* --- DESKTOP LAYER --- */}
       <div className="desktop-surface">
         <div className="desktop-icon" onClick={() => toggleWindow("terminal", "open")}>
           <div className="icon-graphic terminal-icon"></div>
@@ -161,7 +172,6 @@ export default function ContactOS() {
         </div>
       </div>
 
-      {/* --- WINDOW 1: SYSTEM MANIFEST (EASTER EGG BACKDROP) --- */}
       {windows.manifest.open && (
         <div
           className="os-window manifest-window"
@@ -191,7 +201,6 @@ export default function ContactOS() {
         </div>
       )}
 
-      {/* --- WINDOW 2: INTERACTIVE TERMINAL (CONTACT MAIN) --- */}
       {windows.terminal.open && (
         <div
           className="os-window terminal-window"
@@ -228,7 +237,6 @@ export default function ContactOS() {
         </div>
       )}
 
-      {/* --- TASKBAR BOTTOM FOOTER --- */}
       <div className="os-taskbar">
         <div className="taskbar-left">
           <span className="os-start-button">⚡ CORE_OS</span>
