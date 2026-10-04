@@ -32,7 +32,7 @@ export default function ContactOS() {
   });
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const formAreaRef = useRef<HTMLFormElement>(null);
+  const formAreaRef = useRef<any>(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
   const { contextSafe } = useGSAP({ scope: containerRef });
